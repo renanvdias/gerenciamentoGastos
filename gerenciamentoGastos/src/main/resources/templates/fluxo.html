@@ -117,12 +117,25 @@
       </tbody>
     </table>
     <!-- Crie um elemento para calcular e exibir o saldo final -->
-    <div class="balance" id="balance">Saldo: R$ 0,00</div>
+    <div class="balance" id="balance"></div>
   </div>
-  <script>
-    //$(document).ready(function(){
-      //$('#value').mask('000.000.000.000.000,00', {reverse: true});
-    //});
-  </script>
+<script>
+  $(document).ready(function() {
+    var total = 0;
+    $('#table-body tr').each(function() {
+      var valor = $(this).find('td').eq(3).text();
+      valor = parseFloat(valor.replace(',', '.')); // Corrige a formatação do valor
+      var tipo = $(this).find('td').eq(2).text();
+      
+      if (tipo === 'entrada') {
+        total += valor;
+      } else if (tipo === 'saída') {
+        total -= valor;
+      }
+    });
+    // Exibe o saldo com a formatação correta
+    $('#balance').text('Saldo: R$ ' + total.toFixed(2).replace('.', ','));
+  });
+</script>
 </body>
 </html>

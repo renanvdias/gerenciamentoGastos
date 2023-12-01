@@ -110,16 +110,21 @@
       </div>
       <div class="form-group">
         <label for="value">Valor</label>
-        <input type="text" class="form-control" id="value" name="value" placeholder="Ex: R$ 1.000,00, R$ -500,00, R$ 200,00, etc." th:field="${movimentacoes.valor}" required>
+        <input type="text" class="form-control" id="value" name="value" th:field="${movimentacoes.valor}" required>
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Adicionar</button>
       </div>
     </form>
-  <script>
-    //$(document).ready(function(){
-      //$('#value').mask('000.000.000.000.000,00', {reverse: true});
-    //});
-  </script>
+<script>
+  $(document).ready(function() {
+    $('#value').mask('#.##0,00', {reverse: true, placeholder: ''});
+
+    $('#form').submit(function() {
+      var valor = $('#value').cleanVal();
+      $('#value').val(valor / 100);
+    });
+  });
+</script>
 </body>
 </html>
