@@ -19,13 +19,7 @@ public class FluxoController {
     @GetMapping("/")
     public String exibirHome(Model model) {
         model.addAttribute("movimentacoes", new Movimentacoes());
-        return "fluxo";
-    }
-    
-    @GetMapping("/fluxo")
-    public String exibirFluxo(Model model) {
-        model.addAttribute("movimentacoes", new Movimentacoes());
-        return "fluxo";
+        return "inserir";
     }
     
     @GetMapping("/lista") //eh definido a URL que sera chamada
@@ -42,14 +36,14 @@ public class FluxoController {
         } else {
             movimentacoesService.criar(mov);
         }
-        return "redirect:/fluxo";
+        return "redirect:/lista";
     }
     
     @GetMapping("/excluir")
     public String excluirFilme(Model model, @RequestParam String id) {
         Integer idMovimentacao = Integer.parseInt(id);
         movimentacoesService.excluir(idMovimentacao);
-        return "redirect:/fluxo";
+        return "redirect:/lista";
     }
     
     @GetMapping("/alterar")
