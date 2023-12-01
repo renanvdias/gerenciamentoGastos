@@ -10,6 +10,8 @@ Em desenvolvimento
 - JavaScript
 - SQL
 - Java
+- SpringBoot / SpringMVC
+- API Rest
 
 ## Time de Desenvolvedores
 - Renan Vitor Amaral Dias
