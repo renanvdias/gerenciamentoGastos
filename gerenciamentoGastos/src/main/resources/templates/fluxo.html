@@ -109,6 +109,7 @@
               <td th:text="${movimentacoes.descricao}"></td>
               <td th:text="${movimentacoes.tipo}"></td>
               <td th:text="${movimentacoes.valor}"></td>
+              <td><a th:href="@{'/excluir?id=' + ${movimentacoes.id}}"><img src="https://i.imgur.com/r3Jvndw.png" alt="Excluir" width="20" height="20"></a></td>
       </tr>
       </tbody>
     </table>
