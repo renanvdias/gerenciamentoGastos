@@ -80,6 +80,14 @@
     .header a:hover {
       color: #ddd;
     }
+    
+  .table tbody tr.entrada {
+    background-color: #c8e6c9 !important;
+  }
+
+  .table tbody tr.saida {
+    background-color: #ffcdd2 !important;
+  }
   </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
@@ -104,7 +112,7 @@
         </tr>
       </thead>
       <tbody id="table-body">
-      <tr th:each="movimentacoes : ${lista}">
+      <tr th:each="movimentacoes : ${lista}" th:class="${movimentacoes.tipo}">
               <td th:text="${movimentacoes.data}"></td>
               <td th:text="${movimentacoes.descricao}"></td>
               <td th:text="${movimentacoes.tipo}"></td>
