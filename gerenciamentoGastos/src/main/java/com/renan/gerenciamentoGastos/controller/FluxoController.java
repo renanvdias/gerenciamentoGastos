@@ -19,6 +19,12 @@ public class FluxoController {
     @GetMapping("/")
     public String exibirHome(Model model) {
         model.addAttribute("movimentacoes", new Movimentacoes());
+        return "redirect:/lista";
+    }
+    
+    @GetMapping("/inserir")
+    public String exibirInserir(Model model) {
+        model.addAttribute("movimentacoes", new Movimentacoes());
         return "inserir";
     }
     

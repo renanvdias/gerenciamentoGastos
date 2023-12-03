@@ -67,13 +67,13 @@
       .header {
       display: flex;
       justify-content: space-between;
-      padding: 20px;
-      background-color: #007bff;
+      padding: 30px;
+      background-color: #7bed93;
       color: white;
     }
 
     .header a {
-      color: white;
+      color: black;
       text-decoration: none;
     }
 
@@ -85,8 +85,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
 </head>
       <div class="header">
-    <a th:href="@{/}">Inserir</a>
-    <a th:href="@{/lista}">Listagem</a>
+    <a th:href="@{/lista}">Voltar</a>
   </div>
 <body>
   <h1>Fluxo de Caixa</h1>
@@ -117,10 +116,15 @@
         <button type="submit" class="btn btn-primary">Alterar</button>
       </div>
     </form>
-  <script>
-    //$(document).ready(function(){
-      //$('#value').mask('000.000.000.000.000,00', {reverse: true});
-    //});
-  </script>
+<script>
+  $(document).ready(function() {
+    $('#value').mask('#.##0,00', {reverse: true, placeholder: ''});
+
+    $('#form').submit(function() {
+      var valor = $('#value').cleanVal();
+      $('#value').val(valor / 100);
+    });
+  });
+</script>
 </body>
 </html>
