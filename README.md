@@ -2,7 +2,7 @@
 Projeto Final do Curso Técnico de Desenvolvimento de Sistemas
 
 ## Status do Projeto
-Em desenvolvimento
+Concluido
 
 ## Tecnologias que serão aplicadas
 - HTML
